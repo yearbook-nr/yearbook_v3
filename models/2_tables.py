@@ -6,9 +6,10 @@ def get_current_time():
 
 auth.settings.extra_fields['auth_user'] = [
 	Field('university', length=128),
-	Field('batch'),
+	Field('batch', length=128),
 	Field('dp', type='upload'),
-	Field('about', type='text')
+	Field('about', type='text'),
+	Field('is_admin', type='boolean')
     ]
 
 auth.define_tables()
