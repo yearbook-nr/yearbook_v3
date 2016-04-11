@@ -24,8 +24,10 @@ Controllers & Views:
 3. user()
 4. *user_profile.html & *user_profile()
 5. event_list.html & event_list() - default user home
+6. add_event.html & add_event() 
+7. event.html & event() - from event_list.html
+7. add_photo.html & add_photo() - from event.html
 6. photo.html & photo() - *with flip-page animation
 7. (unlogged-in)university_yearbook.html & university_yearbook()
-8. add_photos.html & add_photos() - with import from fb, **insta by tagname 
 
 *Feature to allow registration only by university admin approval
