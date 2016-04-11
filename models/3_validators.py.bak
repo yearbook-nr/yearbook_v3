@@ -1,0 +1,5 @@
+# -*- coding: utf-8 -*-
+db.photo.image_field.requires=IS_NOT_EMPTY()
+db.photo.the_event.requires=IS_NOT_EMPTY()
+db.auth_user.university=IS_NOT_EMPTY()
+db.auth_user.batch=IS_NOT_EMPTY()

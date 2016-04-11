@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset='utf-8'>
+		<title>{{=response.title or request.application}}</title>
+		{{block static_files}}
+		<link href='https://fonts.googleapis.com/css?family=Dancing+Script' rel='stylesheet' type='text/css'>
+		<link href="{{=URL('static', 'css/web2py.css')}}" rel='stylesheet'>
+		<link href="{{=URL('static', 'css/header.css')}}" rel='stylesheet'>
+		{{end}}
+		{{include 'web2py_ajax.html'}}
+	</head>
+	<body>
+		<header>
+		{{block header}}
+			<h2 class='in_header'>The Last Page</h2>
+			<h3 class='in_header'>A beautiful memoire to some of the best times of your life.</h3>
+		{{end}}
+		</header>
+
+		{{include}}
+    <!--nitin doesn't let rachna type anything-->
+	</body>
+</html>

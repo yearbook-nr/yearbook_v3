@@ -1,0 +1,8 @@
+{{extend 'layout.html'}}
+
+<nav>
+    <a href="{{=URL('default', 'home')}}">Home</a>
+    <a href="{{=URL('default', 'event_list')}}">Event List</a>
+    <a href="{{=URL('default', 'user_profile')}}">Profile</a>
+    <a href="{{=URL('default', 'upload_pictures')}}">Add Pictures</a>
+</nav>

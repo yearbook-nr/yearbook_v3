@@ -1,0 +1,21 @@
+(dp1
+S'output'
+p2
+S"<type 'exceptions.SyntaxError'> define_table argument is not a Field or Table: Field('date_upload',default=get_current_time,readable=False,writable=False)"
+p3
+sS'layer'
+p4
+S'/home/konigari/Documents/web2py/applications/yearbook/models/2_tables.py'
+p5
+sS'code'
+p6
+S'# auth\nauth.settings.extra_fields[\'auth_user\'] = [\n\tField(\'university\', length=128),\n\tField(\'batch\'),\n\tField(\'dp\', type=\'upload\'),\n\tField(\'about\', type=\'text\')\n    ]\n\ndb.define_table(\'photo\',\n    Field(\'image_field\',type=\'upload\'),\n    Field(\'caption\'),\n    Field(\'university\',default=auth.user.university if auth.user is not None else None, readable=False, writable=False),\n    Field(\'event\'),\n    Field(\'about_event\',\'text\'),\n    """Field(\'date_upload\',default=get_current_time,readable=False,writable=False)"""\n    )\n'
+p7
+sS'snapshot'
+p8
+(dp9
+sS'traceback'
+p10
+S'Traceback (most recent call last):\n  File "/home/konigari/Documents/web2py/gluon/restricted.py", line 227, in restricted\n    exec ccode in environment\n  File "/home/konigari/Documents/web2py/applications/yearbook/models/2_tables.py", line 15, in <module>\n    """Field(\'date_upload\',default=get_current_time,readable=False,writable=False)"""\n  File "/home/konigari/Documents/web2py/gluon/packages/dal/pydal/base.py", line 834, in define_table\n    table = self.lazy_define_table(tablename,*fields,**args)\n  File "/home/konigari/Documents/web2py/gluon/packages/dal/pydal/base.py", line 851, in lazy_define_table\n    table = table_class(self, tablename, *fields, **args)\n  File "/home/konigari/Documents/web2py/gluon/packages/dal/pydal/objects.py", line 299, in __init__\n    field\nSyntaxError: define_table argument is not a Field or Table: Field(\'date_upload\',default=get_current_time,readable=False,writable=False)\n'
+p11
+s.
