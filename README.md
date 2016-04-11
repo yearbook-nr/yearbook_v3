@@ -12,11 +12,11 @@
 _______________________________
 
 Models:
-1. auth + university + *year + *pic + *about + username_enabled
+1. auth + university + *year + *pic + *about + username_enabled + is_admin
 2. event photo table (photo to caption, event, university, date)
 3. *like table
 4. *comment table
-5. *admin user
+5. admin user per university
 
 Controllers & Views:
 1. layout.html
@@ -27,3 +27,5 @@ Controllers & Views:
 6. photo.html & photo() - *with flip-page animation
 7. (unlogged-in)university_yearbook.html & university_yearbook()
 8. add_photos.html & add_photos() - with import from fb, **insta by tagname 
+
+*Feature to allow registration only by university admin approval
