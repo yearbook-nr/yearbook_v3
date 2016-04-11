@@ -1,29 +1,18 @@
-# -*- coding: utf-8 -*-
-# this file is released under public domain and you can use without limitations
+def index():
+    return dict()
 
-#########################################################################
-## This is a sample controller
-## - index is the default action of any application
-## - user is required for authentication and authorization
-## - download is for downloading files uploaded in the db (does streaming)
-#######################################################################_##
+
 @auth.requires_login()
 def add_event():
+    user_is_admin=db(db[auth.settings.table_user_name].id == auth.user.id).select(db[auth.settings.table_user_name].is_admin)[0]['is_admin']
     form=SQLFORM(db.events).process()
     if form.accepted:
         response.flash='You have successfully added a new event'
     return locals()
 
-def index():
-    """
-    example action using the internationalization operator T and flash
-    rendered by views/default/index.html or views/generic.html
 
-    if you need a simple wiki simply replace the two lines below with:
-    return auth.wiki()
-    """
-    response.flash = T("Fuck yeah")
-    return dict(message=T('Welcome to web2py!'))
+@auth.requires_login()
+def home():
 
 
 def user():
