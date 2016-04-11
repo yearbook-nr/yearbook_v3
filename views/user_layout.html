@@ -2,8 +2,9 @@
 
 <nav>
     <a href="{{=URL('default', 'home')}}">Home</a>
-    <a href="{{=URL('default', 'event_list')}}">Event List</a>
     <a href="{{=URL('default', 'user_profile')}}">Profile</a>
+    <a href="{{=URL('default', 'event_list')}}">Event List</a>
+    {{if user_is_admin:}}<a href="{{=URL('default', 'add_event')}}">Add Event</a>{{pass}}
     <a href="{{=URL('default', 'upload_pictures')}}">Add Pictures</a>
 </nav>
 
