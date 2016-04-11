@@ -12,7 +12,6 @@ auth.settings.extra_fields['auth_user'] = [
     ]
 
 auth.define_tables()
-
 db.define_table('photos',
     Field('image_field',type='upload'),
     Field('caption'),

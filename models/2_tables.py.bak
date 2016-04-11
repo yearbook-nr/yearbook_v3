@@ -11,7 +11,9 @@ auth.settings.extra_fields['auth_user'] = [
 	Field('about', type='text')
     ]
 
-db.define_table('photo',
+auth.define_tables()
+
+db.define_table('photos',
     Field('image_field',type='upload'),
     Field('caption'),
     Field('university',default=auth.user.university if auth.user is not None else None, readable=False, writable=False),
