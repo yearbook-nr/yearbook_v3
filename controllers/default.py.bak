@@ -8,7 +8,7 @@
 ## - download is for downloading files uploaded in the db (does streaming)
 #######################################################################_##
 @auth.requires_login()
-def add_event():
+def add_event()
     form=SQLFORM(db.events).process()
     if form.accepted:
         response.flash='You have successfully added a new event'

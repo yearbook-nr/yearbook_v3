@@ -10,8 +10,11 @@ auth.settings.extra_fields['auth_user'] = [
 	Field('about', type='text'),
 	Field('is_admin', type='boolean')]
 auth.define_tables()
+<<<<<<< HEAD
+=======
 
 # photos
+>>>>>>> d349d1297c6917f3ff5a05dd41204adc605b8e90
 db.define_table('photos',
 		Field('image', type='upload'),
 		Field('caption'),

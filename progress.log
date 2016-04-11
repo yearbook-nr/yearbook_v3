@@ -30,3 +30,16 @@
 [2016-04-10 13:16:13] EDIT yearbook/views/user_layout.html: 4
 [2016-04-10 13:16:19] EDIT yearbook/views/user_layout.html: 0
 [2016-04-10 13:16:43] EDIT yearbook/views/user_layout.html: 1
+[2016-04-11 22:40:56] CREATE default/add_event.html: 0
+[2016-04-11 22:44:11] EDIT yearbook_v2/views/default/add_event.html: 0
+[2016-04-11 22:44:17] EDIT yearbook_v2/models/2_tables.py: 0
+[2016-04-11 22:44:20] EDIT yearbook_v2/models/1_menu.py: 0
+[2016-04-11 22:44:22] EDIT yearbook_v2/models/0_db.py: 0
+[2016-04-11 22:44:23] EDIT yearbook_v2/controllers/default.py: 6
+[2016-04-11 22:44:46] EDIT yearbook_v2/controllers/default.py: 0
+[2016-04-11 22:44:55] EDIT yearbook_v2/controllers/default.py: 0
+[2016-04-11 22:46:16] EDIT yearbook_v2/controllers/default.py: 0
+[2016-04-11 22:46:17] EDIT yearbook_v2/controllers/default.py: 0
+[2016-04-11 22:46:24] EDIT yearbook_v2/controllers/default.py: 0
+[2016-04-11 22:46:34] EDIT yearbook_v2/controllers/default.py: 0
+[2016-04-11 22:51:08] CREATE default/event.html: 0
