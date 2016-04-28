@@ -4,28 +4,33 @@ def get_current_time():
 
 # auth
 auth.settings.extra_fields['auth_user'] = [
-	Field('university'),
+    Field('university'),
 	Field('batch'),
 	Field('dp', type='upload'),
 	Field('about', type='text'),
-	Field('is_admin', type='boolean')]
+	Field('is_admin', type='boolean', readable=False, writable=False)]
 auth.define_tables()
-<<<<<<< HEAD
-=======
 
 # photos
->>>>>>> d349d1297c6917f3ff5a05dd41204adc605b8e90
 db.define_table('photos',
 		Field('image', type='upload'),
 		Field('caption'),
 		Field('university', default=auth.user.university if auth.user is not None else None, readable=False, writable=False),
 		Field('date_of_upload', default=get_current_time(), readable=False, writable=False),
-		Field('event'),
+		Field('event_field'),
 		Field('about',type='text'))
 
 # events
 db.define_table('events',
 		Field('name'),
-		Field('date', type='date'),
+		Field('date_field', type='date'),
 		Field('about', type='text'),
 		Field('cover_pic', type='upload'))
+
+# universities
+db.define_table('universities',
+		Field('name'),
+        Field('motto'),
+        Field('email'),
+        Field('address', type='text'),
+		Field('message_field', type='text'))

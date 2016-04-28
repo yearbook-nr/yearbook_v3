@@ -31,3 +31,4 @@ Controllers & Views:
 7. (unlogged-in)university_yearbook.html & university_yearbook()
 
 *Feature to allow registration only by university admin approval
+*Range of dates

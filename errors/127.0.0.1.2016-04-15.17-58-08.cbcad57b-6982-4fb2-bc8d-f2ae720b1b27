@@ -1,0 +1,21 @@
+(dp1
+S'output'
+p2
+S"<type 'exceptions.NameError'> global name 'forms' is not defined"
+p3
+sS'layer'
+p4
+S'/media/user/7A75-AAD4/Academic/Development/web2py/applications/yearbook_v3/controllers/default.py'
+p5
+sS'code'
+p6
+S'def index():\n    if auth.user is not None:\n        redirect(URL(\'default\', \'home\'))\n    return dict()\n\n\ndef user():\n    """\n    exposes:\n    http://..../[app]/default/user/login\n    http://..../[app]/default/user/logout\n    http://..../[app]/default/user/register\n    http://..../[app]/default/user/profile\n    http://..../[app]/default/user/retrieve_password\n    http://..../[app]/default/user/change_password\n    http://..../[app]/default/user/bulk_register\n    use @auth.requires_login()\n        @auth.requires_membership(\'group name\')\n        @auth.requires_permission(\'read\',\'table name\',record_id)\n    to decorate functions that need access control\n    also notice there is http://..../[app]/appadmin/manage/auth to allow administrator to manage users\n    """\n    return dict(form=auth())\n\n\ndef new_university():\n    """\n    creates a university with a new ADMIN user\n    """\n    form=SQLFORM.factory(\n        Field(\'uni_name\'),\n        Field(\'password\', type=\'password\', readable=False),\n        Field(\'email\', requires=IS_EMAIL()),\n        Field(\'uni_address\', type=\'text\', requires=IS_NOT_EMPTY()),\n        Field(\'uni_message\', type=\'text\'))\n\n    if form.process().accepted:\n        db[auth.settings.table_user_name].insert(first_name=\'ADMIN\', last_name=form.vars.name, email=form.vars.email, password=form.vars.password)\n        db[\'universities\'].insert(name=form.vars.uni_name, email=form.vars.email, address=forms.vars.uni_address, message_field=form.vars.uni_message)\n        redirect(URL(\'default\', \'index\'))\n\n    elif form.errors:\n        response.flash=\'Your form has errors.\'\n\n    return dict(form=form)\n\n\n@auth.requires_login()\ndef add_event():\n    user_is_admin=db(db[auth.settings.table_user_name].id == auth.user.id).select(db[auth.settings.table_user_name].is_admin)[0][\'is_admin\']\n    form=SQLFORM(db.events).process()\n    if form.accepted:\n        response.flash=\'You have successfully added a new event\'\n    return locals()\n\n\n@auth.requires_login()\ndef home():\n    form=SQLFORM(db[auth.settings.table_user_name])\n    return \'Hey\'\n\n@cache.action()\ndef download():\n    """\n    allows downloading of uploaded files\n    http://..../[app]/default/download/[filename]\n    """\n    return response.download(request, db)\n\n\ndef call():\n    """\n    exposes services. for example:\n    http://..../[app]/default/call/jsonrpc\n    decorate with @services.jsonrpc the functions to expose\n    supports xml, json, xmlrpc, jsonrpc, amfrpc, rss, csv\n    """\n    return service()\n\nresponse._vars=response._caller(new_university)\n'
+p7
+sS'snapshot'
+p8
+(dp9
+sS'traceback'
+p10
+S'Traceback (most recent call last):\n  File "/media/user/7A75-AAD4/Academic/Development/web2py/gluon/restricted.py", line 227, in restricted\n    exec ccode in environment\n  File "/media/user/7A75-AAD4/Academic/Development/web2py/applications/yearbook_v3/controllers/default.py", line 80, in <module>\n  File "/media/user/7A75-AAD4/Academic/Development/web2py/gluon/globals.py", line 412, in <lambda>\n    self._caller = lambda f: f()\n  File "/media/user/7A75-AAD4/Academic/Development/web2py/applications/yearbook_v3/controllers/default.py", line 39, in new_university\n    db[\'universities\'].insert(name=form.vars.uni_name, email=form.vars.email, address=forms.vars.uni_address, message_field=form.vars.uni_message)\nNameError: global name \'forms\' is not defined\n'
+p11
+s.

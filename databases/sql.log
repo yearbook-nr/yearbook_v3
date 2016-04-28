@@ -1,4 +1,4 @@
-timestamp: 2016-03-21T14:08:47.278108
+timestamp: 2016-04-15T19:27:03.694942
 CREATE TABLE auth_user(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     first_name CHAR(128),
@@ -7,24 +7,29 @@ CREATE TABLE auth_user(
     password CHAR(512),
     registration_key CHAR(512),
     reset_password_key CHAR(512),
-    registration_id CHAR(512)
+    registration_id CHAR(512),
+    university CHAR(512),
+    batch CHAR(512),
+    dp CHAR(512),
+    about TEXT,
+    is_admin CHAR(1)
 );
 success!
-timestamp: 2016-03-21T14:08:47.472506
+timestamp: 2016-04-15T19:27:05.826147
 CREATE TABLE auth_group(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     role CHAR(512),
     description TEXT
 );
 success!
-timestamp: 2016-03-21T14:08:47.666437
+timestamp: 2016-04-15T19:27:06.025551
 CREATE TABLE auth_membership(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
     group_id INTEGER REFERENCES auth_group (id) ON DELETE CASCADE  
 );
 success!
-timestamp: 2016-03-21T14:08:47.866259
+timestamp: 2016-04-15T19:27:06.224309
 CREATE TABLE auth_permission(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     group_id INTEGER REFERENCES auth_group (id) ON DELETE CASCADE  ,
@@ -33,7 +38,7 @@ CREATE TABLE auth_permission(
     record_id INTEGER
 );
 success!
-timestamp: 2016-03-21T14:08:48.057980
+timestamp: 2016-04-15T19:27:06.458518
 CREATE TABLE auth_event(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     time_stamp TIMESTAMP,
@@ -43,7 +48,7 @@ CREATE TABLE auth_event(
     description TEXT
 );
 success!
-timestamp: 2016-03-21T14:08:48.261536
+timestamp: 2016-04-15T19:27:06.637361
 CREATE TABLE auth_cas(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
@@ -53,36 +58,33 @@ CREATE TABLE auth_cas(
     renew CHAR(1)
 );
 success!
-timestamp: 2016-04-05T15:58:28.302608
-CREATE TABLE photo(
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    image_field CHAR(512),
-    caption CHAR(512),
-    university CHAR(512),
-    the_event CHAR(512),
-    about_event TEXT
-);
-success!
-timestamp: 2016-04-05T16:22:48.254317
-ALTER TABLE photo ADD date_upload CHAR(512);
-success!
-timestamp: 2016-04-10T12:51:00.345338
-ALTER TABLE auth_user ADD university CHAR(128);
-timestamp: 2016-04-10T12:51:00.420565
-ALTER TABLE auth_user ADD batch CHAR(512);
-timestamp: 2016-04-10T12:51:00.487541
-ALTER TABLE auth_user ADD about TEXT;
-timestamp: 2016-04-10T12:51:00.554469
-ALTER TABLE auth_user ADD dp CHAR(512);
-success!
-timestamp: 2016-04-10T12:51:00.640384
+timestamp: 2016-04-15T19:27:06.843608
 CREATE TABLE photos(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    image_field CHAR(512),
+    image CHAR(512),
     caption CHAR(512),
     university CHAR(512),
-    date_upload CHAR(512),
-    the_event CHAR(512),
-    about_event TEXT
+    date_of_upload CHAR(512),
+    event_field CHAR(512),
+    about TEXT
+);
+success!
+timestamp: 2016-04-15T19:27:07.050934
+CREATE TABLE events(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name CHAR(512),
+    date_field DATE,
+    about TEXT,
+    cover_pic CHAR(512)
+);
+success!
+timestamp: 2016-04-15T19:27:07.255316
+CREATE TABLE universities(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name CHAR(512),
+    motto CHAR(512),
+    email CHAR(512),
+    address TEXT,
+    message_field TEXT
 );
 success!
